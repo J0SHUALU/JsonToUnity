@@ -2563,6 +2563,74 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1655337114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655337115}
+  - component: {fileID: 1655337117}
+  - component: {fileID: 1655337116}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1655337115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655337114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 445.40155, y: 275.6662, z: 8.15454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655337116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655337114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e344413f575624b948953cda89288512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProfilePanel
+  playerNameText: {fileID: 1846556460}
+  levelText: {fileID: 1417997253}
+  healthText: {fileID: 1731156835}
+  positionText: {fileID: 1010867512}
+  inventoryContent: {fileID: 673926709}
+  inventoryItemPrefab: {fileID: 5063442139052650791, guid: 1766fe2f606764c0187100696dcc4f4a, type: 3}
+  errorText: {fileID: 1203388161}
+--- !u!114 &1655337117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655337114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acbbea3d91384a229204ffea9043028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProfileLoader
+  apiUrl: https://api.jsonbin.io/v3/b/6686a992e41b4d34e40d06fa
+  display: {fileID: 1655337116}
+  refreshButton: {fileID: 92548419}
+  sortButton: {fileID: 641912397}
 --- !u!1 &1720602344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,3 +3248,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 761577303}
   - {fileID: 136695725}
+  - {fileID: 1655337115}
