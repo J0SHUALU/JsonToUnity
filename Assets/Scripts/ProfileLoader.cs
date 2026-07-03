@@ -23,6 +23,7 @@ public class ProfileLoader : MonoBehaviour
 
     public void LoadData()
     {
+        Debug.Log("Refresh pressed - fetching data from API...");
         StartCoroutine(GetPlayerData());
     }
 
@@ -42,8 +43,13 @@ public class ProfileLoader : MonoBehaviour
         PlayerPayload response = JsonUtility.FromJson<PlayerPayload>(json);
 
         if (response != null && response.record != null)
+        {
+            Debug.Log("Data loaded for player: " + response.record.playerName);
             display.ShowData(response.record);
+        }
         else
+        {
             display.ShowError("Data came back empty or in the wrong format.");
+        }
     }
 }

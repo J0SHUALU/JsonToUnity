@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ProfilePanel : MonoBehaviour, IProfileView
@@ -40,6 +41,10 @@ public class ProfilePanel : MonoBehaviour, IProfileView
             ? currentItems.OrderByDescending(i => i.weight).ToArray()
             : currentItems.OrderBy(i => i.itemName).ToArray();
 
+        Debug.Log(sortedByWeight
+            ? "Sort pressed - sorting inventory by weight (high to low)"
+            : "Sort pressed - sorting inventory by name (A to Z)");
+
         BuildInventory(sorted);
     }
 
@@ -48,11 +53,25 @@ public class ProfilePanel : MonoBehaviour, IProfileView
         foreach (Transform child in inventoryContent)
             Destroy(child.gameObject);
 
-        foreach (LootEntry item in items)
+        float rowHeight = 50f;
+        float spacing = 8f;
+
+        for (int i = 0; i < items.Length; i++)
         {
             GameObject row = Instantiate(inventoryItemPrefab, inventoryContent);
+
+            RectTransform rt = row.GetComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0f, 1f);
+            rt.anchorMax = new Vector2(1f, 1f);
+            rt.pivot = new Vector2(0.5f, 1f);
+            rt.offsetMin = new Vector2(0f, rt.offsetMin.y);
+            rt.offsetMax = new Vector2(0f, rt.offsetMax.y);
+            rt.sizeDelta = new Vector2(0f, rowHeight);
+            rt.anchoredPosition = new Vector2(0f, -i * (rowHeight + spacing));
+
             TMP_Text label = row.GetComponentInChildren<TMP_Text>();
-            label.text = item.itemName + "  x" + item.quantity + "   (weight: " + item.weight + ")";
+            label.text = items[i].itemName + "  x" + items[i].quantity
+                         + "   (weight: " + items[i].weight + ")";
         }
     }
 
