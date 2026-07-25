@@ -38,5 +38,7 @@ public class BinInfo
 {
     public string id;
     public string createdAt;
+ // Additional metadata fields can be added here as needed
+ 
     public string name;
 }
